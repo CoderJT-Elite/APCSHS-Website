@@ -273,7 +273,10 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-16 pt-8 border-t border-border text-center text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center gap-4">
-            <p>&copy; {new Date().getFullYear()} Grand Blanc Computer Science Honor Society.</p>
+            <div className="flex flex-col items-center md:items-start gap-1">
+              <p>&copy; {new Date().getFullYear()} Grand Blanc Computer Science Honor Society.</p>
+              <p className="font-mono text-xs text-muted-foreground">Created by John Tewolde</p>
+            </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
               <p className="font-mono text-xs text-primary">System Status: Online</p>

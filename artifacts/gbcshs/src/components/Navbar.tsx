@@ -16,13 +16,13 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      
+
       const sections = navItems.map(item => ({
         id: item.href.substring(1),
         element: document.getElementById(item.href.substring(1))
       }));
 
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 120;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -34,8 +34,21 @@ export function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.substring(1);
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const top = element.offsetTop - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setActive(id);
+    }
+  };
 
   return (
     <nav className={cn(
@@ -43,7 +56,7 @@ export function Navbar() {
       scrolled ? "bg-background/80 backdrop-blur-md border-border shadow-sm py-4" : "bg-transparent py-6"
     )}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#home" className="text-xl font-bold font-mono text-primary tracking-tighter">
+        <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-xl font-bold font-mono text-primary tracking-tighter">
           &lt;GBCSHS /&gt;
         </a>
         <div className="hidden md:flex items-center space-x-8">
@@ -51,8 +64,9 @@ export function Navbar() {
             <a
               key={item.name}
               href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary relative",
+                "text-sm font-medium transition-colors hover:text-primary relative cursor-pointer",
                 active === item.href.substring(1) ? "text-primary" : "text-muted-foreground"
               )}
             >
