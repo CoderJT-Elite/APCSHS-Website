@@ -207,20 +207,49 @@ export default function Home() {
       </section>
 
       {/* Academics */}
-      <section id="academics" className="py-16 bg-background relative">
+      <section id="academics" className="py-32 bg-background relative border-b border-border">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">About the Courses</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              All listed courses are rigorous computer science offerings aligned with CSTA K-12 Standards. These courses challenge students to think computationally, write original code, and develop problem-solving skills that extend far beyond the classroom. Completion of at least one semester qualifies a student for GBCSHS membership consideration.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+            >
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">About the Courses</h2>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                All listed courses are rigorous computer science offerings aligned with CSTA K-12 Standards. These courses challenge students to think computationally, write original code, and develop problem-solving skills that extend far beyond the classroom.
+              </p>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                Completion of at least one semester of any qualifying course qualifies a student for GBCSHS membership consideration.
+              </p>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeIn}
+              className="space-y-4"
+            >
+              {[
+                { name: "CS Discoveries", desc: "Foundational problem-solving and creative computing" },
+                { name: "Exploring Computer Science", desc: "Broad introduction to CS principles and practices" },
+                { name: "AP Computer Science Principles", desc: "Concepts of computing and its impact on society" },
+                { name: "AP Computer Science A", desc: "Object-oriented programming in Java" },
+                { name: "IB Computer Science", desc: "International Baccalaureate-level CS study" },
+              ].map((course, i) => (
+                <div key={i} className="flex items-start gap-4 p-4 rounded-lg border border-border bg-card hover:border-primary/30 transition-colors">
+                  <div className="w-8 h-8 rounded bg-background flex items-center justify-center border border-border flex-shrink-0 mt-0.5">
+                    <span className="text-primary font-mono text-xs font-bold">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-foreground">{course.name}</h4>
+                    <p className="text-sm text-muted-foreground">{course.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 

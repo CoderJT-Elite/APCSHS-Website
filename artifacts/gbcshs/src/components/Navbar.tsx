@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'Values', href: '#values' },
   { name: 'Membership', href: '#membership' },
-  { name: 'Academics', href: '#academics' },
   { name: 'Service', href: '#service' },
 ];
 
 export function Navbar() {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const isNavigating = useRef(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      if (isNavigating.current) return;
 
       const sections = navItems.map(item => {
         const el = document.getElementById(item.href.substring(1));
@@ -55,10 +57,15 @@ export function Navbar() {
     const id = href.substring(1);
     const element = document.getElementById(id);
     if (element) {
+      isNavigating.current = true;
+      setActive(id);
       const offset = 80;
       const top = element.offsetTop - offset;
       window.scrollTo({ top, behavior: 'smooth' });
-      setActive(id);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      timeoutRef.current = setTimeout(() => {
+        isNavigating.current = false;
+      }, 800);
     }
   };
 
