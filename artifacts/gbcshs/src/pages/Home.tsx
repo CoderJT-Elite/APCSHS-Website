@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Membership & Academics */}
+      {/* Membership */}
       <section id="membership" className="py-32 bg-card relative border-y border-border">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -178,7 +178,6 @@ export default function Home() {
               viewport={{ once: true }}
               variants={fadeIn}
               className="bg-background border border-border p-8 rounded-xl relative overflow-hidden"
-              id="academics"
             >
               <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                 <Terminal className="w-32 h-32" />
@@ -204,6 +203,24 @@ export default function Home() {
               </ul>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Academics */}
+      <section id="academics" className="py-16 bg-background relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">About the Courses</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              All listed courses are rigorous computer science offerings aligned with CSTA K-12 Standards. These courses challenge students to think computationally, write original code, and develop problem-solving skills that extend far beyond the classroom. Completion of at least one semester qualifies a student for GBCSHS membership consideration.
+            </p>
+          </motion.div>
         </div>
       </section>
 

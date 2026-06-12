@@ -17,20 +17,32 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = navItems.map(item => ({
-        id: item.href.substring(1),
-        element: document.getElementById(item.href.substring(1))
-      }));
+      const sections = navItems.map(item => {
+        const el = document.getElementById(item.href.substring(1));
+        if (!el) return null;
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = top + rect.height;
+        return { id: item.href.substring(1), top, bottom };
+      }).filter(Boolean);
 
-      const scrollPosition = window.scrollY + 120;
+      const viewportTop = window.scrollY + 80;
+      const viewportBottom = window.scrollY + window.innerHeight;
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section.element && section.element.offsetTop <= scrollPosition) {
-          setActive(section.id);
-          break;
+      let bestSection = 'home';
+      let maxOverlap = 0;
+
+      for (const section of sections) {
+        const overlapTop = Math.max(section.top, viewportTop);
+        const overlapBottom = Math.min(section.bottom, viewportBottom);
+        const overlap = Math.max(0, overlapBottom - overlapTop);
+        if (overlap > maxOverlap) {
+          maxOverlap = overlap;
+          bestSection = section.id;
         }
       }
+
+      setActive(bestSection);
     };
 
     window.addEventListener('scroll', handleScroll);
