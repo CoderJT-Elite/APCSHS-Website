@@ -11,42 +11,40 @@ const navItems = [
 export function Navbar() {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
-  const isNavigating = useRef(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const visibleSections = useRef<Map<string, IntersectionObserverEntry>>(new Map());
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      if (isNavigating.current) return;
+    const thresholds = Array.from({ length: 21 }, (_, i) => i * 0.05);
 
-      const sections = navItems.map(item => {
-        const el = document.getElementById(item.href.substring(1));
-        if (!el) return null;
-        const rect = el.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-        const bottom = top + rect.height;
-        return { id: item.href.substring(1), top, bottom };
-      }).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.current.set(entry.target.id, entry);
+          } else {
+            visibleSections.current.delete(entry.target.id);
+          }
+        });
 
-      const viewportTop = window.scrollY + 80;
-      const viewportBottom = window.scrollY + window.innerHeight;
+        const allVisible = Array.from(visibleSections.current.values());
+        if (allVisible.length === 0) return;
 
-      let bestSection = 'home';
-      let maxOverlap = 0;
+        const best = allVisible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        setActive(best.target.id);
+      },
+      { threshold: thresholds, rootMargin: '-80px 0px -40% 0px' }
+    );
 
-      for (const section of sections) {
-        const overlapTop = Math.max(section.top, viewportTop);
-        const overlapBottom = Math.min(section.bottom, viewportBottom);
-        const overlap = Math.max(0, overlapBottom - overlapTop);
-        if (overlap > maxOverlap) {
-          maxOverlap = overlap;
-          bestSection = section.id;
-        }
-      }
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.href.substring(1));
+      if (el) observer.observe(el);
+    });
 
-      setActive(bestSection);
-    };
+    return () => observer.disconnect();
+  }, []);
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
@@ -57,15 +55,10 @@ export function Navbar() {
     const id = href.substring(1);
     const element = document.getElementById(id);
     if (element) {
-      isNavigating.current = true;
-      setActive(id);
       const offset = 80;
       const top = element.offsetTop - offset;
       window.scrollTo({ top, behavior: 'smooth' });
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      timeoutRef.current = setTimeout(() => {
-        isNavigating.current = false;
-      }, 800);
+      setActive(id);
     }
   };
 
