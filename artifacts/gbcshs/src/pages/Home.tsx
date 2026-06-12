@@ -317,6 +317,20 @@ export default function Home() {
                 <p className="text-primary mt-2">A CSTA Affiliate Society</p>
               </div>
             </div>
+            <div>
+              <h4 className="font-bold mb-4 font-mono">Documents</h4>
+              <div className="text-sm">
+                <a
+                  href="constitution.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+                >
+                  <BookOpen className="w-4 h-4 group-hover:text-primary transition-colors" />
+                  GBCSHS Constitution
+                </a>
+              </div>
+            </div>
           </div>
           <div className="mt-16 pt-8 border-t border-border text-center text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex flex-col items-center md:items-start gap-1">
