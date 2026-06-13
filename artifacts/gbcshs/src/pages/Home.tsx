@@ -27,7 +27,7 @@ export default function Home() {
       <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/hero-bg.png" 
+            src={`${import.meta.env.BASE_URL}hero-bg.png`}
             alt="Late night coding session" 
             className="w-full h-full object-cover opacity-30"
           />
@@ -121,7 +121,7 @@ export default function Home() {
       {/* Abstract Divider */}
       <section className="py-20 relative overflow-hidden flex justify-center items-center">
         <div className="w-full max-w-4xl relative opacity-50 px-6">
-           <img src="/abstract-tech.png" alt="Tech Abstract" className="w-full h-auto object-cover rounded-3xl border border-border/50 shadow-2xl" />
+           <img src={`${import.meta.env.BASE_URL}abstract-tech.png`} alt="Tech Abstract" className="w-full h-auto object-cover rounded-3xl border border-border/50 shadow-2xl" />
            <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
         </div>
@@ -321,7 +321,7 @@ export default function Home() {
               <h4 className="font-bold mb-4 font-mono">Documents</h4>
               <div className="text-sm">
                 <a
-                  href="constitution.pdf"
+                  href={`${import.meta.env.BASE_URL}constitution.pdf`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
