@@ -29,10 +29,13 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build native dependencies
+        run: pnpm rebuild esbuild
 
       - name: Build
         working-directory: artifacts/gbcshs
