@@ -313,7 +313,13 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4 font-mono">Leadership</h4>
               <div className="text-muted-foreground space-y-2 text-sm">
-                <p><span className="text-foreground">Advisor:</span> Mr. Todd Beard</p>
+                <p><span className="text-foreground">President:</span> John Tewolde</p>
+                <p>
+                  <a href="mailto:jg.tewolde@gmail.com" className="hover:text-primary transition-colors">
+                    jg.tewolde@gmail.com
+                  </a>
+                </p>
+                <p className="pt-1"><span className="text-foreground">Advisor:</span> Mr. Todd Beard</p>
                 <p className="text-primary mt-2">A CSTA Affiliate Society</p>
               </div>
             </div>

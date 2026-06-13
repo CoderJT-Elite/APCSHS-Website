@@ -12,6 +12,8 @@ export function Navbar() {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   const visibleSections = useRef<Map<string, IntersectionObserverEntry>>(new Map());
+  const scrollLock = useRef(false);
+  const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const thresholds = Array.from({ length: 21 }, (_, i) => i * 0.05);
@@ -25,6 +27,8 @@ export function Navbar() {
             visibleSections.current.delete(entry.target.id);
           }
         });
+
+        if (scrollLock.current) return;
 
         const allVisible = Array.from(visibleSections.current.values());
         if (allVisible.length === 0) return;
@@ -55,6 +59,12 @@ export function Navbar() {
     const id = href.substring(1);
     const element = document.getElementById(id);
     if (element) {
+      scrollLock.current = true;
+      if (lockTimer.current) clearTimeout(lockTimer.current);
+      lockTimer.current = setTimeout(() => {
+        scrollLock.current = false;
+      }, 1000);
+
       const offset = 80;
       const top = element.offsetTop - offset;
       window.scrollTo({ top, behavior: 'smooth' });
