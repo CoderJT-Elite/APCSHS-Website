@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Menu, X } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -11,6 +12,7 @@ const navItems = [
 export function Navbar() {
   const [active, setActive] = useState('home');
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const visibleSections = useRef<Map<string, IntersectionObserverEntry>>(new Map());
   const scrollLock = useRef(false);
   const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -70,12 +72,13 @@ export function Navbar() {
       window.scrollTo({ top, behavior: 'smooth' });
       setActive(id);
     }
+    setMobileOpen(false);
   };
 
   return (
     <nav className={cn(
       "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
-      scrolled ? "bg-background/80 backdrop-blur-md border-border shadow-sm py-4" : "bg-transparent py-6"
+      scrolled || mobileOpen ? "bg-background/80 backdrop-blur-md border-border shadow-sm py-4" : "bg-transparent py-6"
     )}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-xl font-bold font-mono text-primary tracking-tighter">
@@ -99,7 +102,33 @@ export function Navbar() {
             </a>
           ))}
         </div>
+        <button
+          type="button"
+          onClick={() => setMobileOpen((prev) => !prev)}
+          className="md:hidden text-foreground p-2 -mr-2"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
+      {mobileOpen && (
+        <div className="md:hidden container mx-auto px-6 pt-6 pb-2 flex flex-col space-y-4 border-t border-border mt-4">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className={cn(
+                "text-base font-medium transition-colors hover:text-primary cursor-pointer",
+                active === item.href.substring(1) ? "text-primary" : "text-muted-foreground"
+              )}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }
