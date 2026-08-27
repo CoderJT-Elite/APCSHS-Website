@@ -26,15 +26,15 @@ export default function Home() {
         <div className="absolute top-1/3 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          {/* Animated Hero Brand Mark */}
+          {/* Animated Hero Brand Crest (Option 1) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="flex justify-center mb-6"
           >
-            <div className="p-3 rounded-2xl bg-card/80 border border-card-border/80 shadow-xs backdrop-blur-xs">
-              <BrandMark size={52} animated={true} />
+            <div className="p-3 rounded-2xl bg-card/90 border border-card-border shadow-md backdrop-blur-xs hover:border-primary/40 transition-all">
+              <BrandMark size={88} variant="crest" animated={true} />
             </div>
           </motion.div>
 

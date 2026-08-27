@@ -33,11 +33,16 @@ export default function About() {
       {/* Main Narrative & Background */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
         <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-10 shadow-xs space-y-6 text-foreground/90 leading-relaxed">
-          <div className="flex items-center gap-3 pb-4 border-b border-border">
-            <Building className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl font-serif font-bold text-foreground">
-              National Heritage &amp; School Community
-            </h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border">
+            <div className="flex items-center gap-3">
+              <Building className="w-6 h-6 text-primary" />
+              <h2 className="text-2xl font-serif font-bold text-foreground">
+                National Heritage &amp; School Community
+              </h2>
+            </div>
+            <div className="hidden sm:flex items-center gap-2">
+              <BrandMark size={44} variant="crest" />
+            </div>
           </div>
           <p>
             Established under the national charter of the <strong>Computer Science Teachers Association (CSTA)</strong> and authorized by Principal Michael Fray, the Grand Blanc High School Chapter (GBCSHS) exists to recognize high school students who excel in computing coursework and demonstrate outstanding leadership and service.
