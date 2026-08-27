@@ -160,6 +160,71 @@ export default function About() {
         </div>
       </section>
 
+      {/* Chapter Insignia & Branding Showcase */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <span className="font-mono text-xs text-primary uppercase tracking-widest font-semibold block mb-2">
+            Visual Identity
+          </span>
+          <h2 className="text-3xl font-serif font-bold text-foreground">
+            Official Chapter Insignia &amp; Marks
+          </h2>
+          <p className="text-muted-foreground mt-2 text-sm sm:text-base">
+            Our visual identity unites Grand Blanc Bobcat pride with computing heritage.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-8">
+          {/* Logo 1: Collegiate Crest */}
+          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xs hover:border-primary/40 transition-all group">
+            <div className="p-4 rounded-2xl bg-muted/50 border border-border/80 mb-5 w-44 h-44 flex items-center justify-center">
+              <BrandMark size={140} variant="crest" animated={true} />
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-mono font-medium mb-3">
+              <span>Primary Chapter Crest</span>
+            </div>
+            <h3 className="text-xl font-serif font-bold text-foreground mb-2">
+              Collegiate Bobcat Crest
+            </h3>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              Academic shield emblazoned with the Grand Blanc Bobcat, integrated circuit traces, coding brackets, and the official school banner.
+            </p>
+            <a
+              href={`${import.meta.env.BASE_URL}gbcshs-crest.png`}
+              download="gbcshs-crest.png"
+              className="mt-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-xs font-mono font-medium transition-all"
+            >
+              <FileText className="w-3.5 h-3.5 text-primary" />
+              <span>Download Crest (PNG)</span>
+            </a>
+          </div>
+
+          {/* Logo 2: Geometric Tech Mark */}
+          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xs hover:border-primary/40 transition-all group">
+            <div className="p-4 rounded-2xl bg-muted/50 border border-border/80 mb-5 w-44 h-44 flex items-center justify-center">
+              <BrandMark size={140} variant="mark" animated={true} />
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary/10 text-foreground text-xs font-mono font-medium mb-3">
+              <span>Digital &amp; App Insignia</span>
+            </div>
+            <h3 className="text-xl font-serif font-bold text-foreground mb-2">
+              Geometric Tech Mark
+            </h3>
+            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+              Modern polygon Bobcat silhouette crafted with sharp crimson and charcoal facets and embedded &lt; &gt; code bracket angles.
+            </p>
+            <a
+              href={`${import.meta.env.BASE_URL}gbcshs-mark.png`}
+              download="gbcshs-mark.png"
+              className="mt-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-xs font-mono font-medium transition-all"
+            >
+              <FileText className="w-3.5 h-3.5 text-primary" />
+              <span>Download Mark (PNG)</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Chapter Governance & Constitution Download */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="bg-muted/40 border border-border rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
