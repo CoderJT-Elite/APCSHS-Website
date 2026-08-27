@@ -40,15 +40,15 @@ export default function About() {
             </h2>
           </div>
           <p>
-            Established under the national charter of the <strong>Computer Science Teachers Association (CSTA)</strong>, the Grand Blanc High School Chapter (GBCSHS) exists to recognize high school students who excel in computing coursework and demonstrate outstanding leadership and service.
+            Established under the national charter of the <strong>Computer Science Teachers Association (CSTA)</strong> and authorized by Principal Michael Fray, the Grand Blanc High School Chapter (GBCSHS) exists to recognize high school students who excel in computing coursework and demonstrate outstanding leadership and service.
           </p>
           <p>
-            Computer science is more than syntax and algorithms—it is a fundamental literacy for solving real-world challenges. Our members represent Grand Blanc High School in local outreach, technology initiatives, peer mentoring, and collaborative programming projects.
+            Computer science is more than syntax and algorithms: it is a fundamental literacy for solving real-world challenges. Our members represent Grand Blanc High School in local outreach, technology initiatives, peer mentoring, and collaborative programming projects.
           </p>
           <div className="p-4 rounded-xl bg-muted/60 border border-border flex items-start gap-3 text-sm">
             <Sparkles className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
             <p className="text-muted-foreground">
-              <strong className="text-foreground">CSTA Chapter Designation:</strong> Our society follows the standardized national constitution approved by the Computer Science Teachers Association, upholding uniform standards for equity, academic excellence, and community service.
+              <strong className="text-foreground">CSTA Chapter Designation:</strong> Our society operates under the standardized national constitution approved by the Computer Science Teachers Association (July 21, 2022; adopted by GBHS CSHS March 20, 2025), upholding uniform standards for equity, academic excellence, and community service.
             </p>
           </div>
         </div>
@@ -58,13 +58,13 @@ export default function About() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="font-mono text-xs text-primary uppercase tracking-widest font-semibold block mb-2">
-            Constitutional Foundations
+            Constitutional Foundations &bull; Article I, Section 3
           </span>
           <h2 className="text-3xl font-serif font-bold text-foreground">
             Our Three Guiding Pillars
           </h2>
           <p className="text-muted-foreground mt-2">
-            Every initiative, meeting, and member obligation centers on these values.
+            Every initiative, meeting, and member obligation centers on these constitutional values.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function About() {
               </div>
               <div>
                 <span className="font-mono text-xs text-primary font-semibold uppercase tracking-wider">
-                  Pillar I &bull; Article XIII
+                  Pillar I &bull; Article I §3.1 &amp; Article XIII
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-foreground">
                   Equity in Computing
@@ -85,11 +85,14 @@ export default function About() {
               </div>
             </div>
             <div className="space-y-3 text-muted-foreground text-sm sm:text-base leading-relaxed pl-0 sm:pl-16">
-              <p>
-                We believe that every student possesses the potential to explore, understand, and thrive in computer science. In alignment with Article XIII of our constitution, our chapter actively works to expand access and engagement among historically underrepresented groups in technology.
+              <p className="italic text-foreground/90 border-l-2 border-primary/50 pl-3">
+                &ldquo;A realization that any student has the potential to enroll, to grow, and to excel in computing.&rdquo;
               </p>
               <p>
-                The executive committee regularly evaluates chapter recruitment and demographics against school-wide enrollment, ensuring that computer science education at Grand Blanc High School is welcoming, supportive, and accessible to everyone.
+                In direct alignment with Article XIII of our constitution, our chapter actively works to expand access, engagement, and achievement among underrepresented groups in computer science.
+              </p>
+              <p>
+                To make this commitment tangible, the Executive Committee is constitutionally required to examine and compare society membership demographics against total Grand Blanc High School enrollment at least once annually, executing proactive recruitment plans to ensure the society reflects the diversity of our school community.
               </p>
             </div>
           </div>
@@ -102,19 +105,22 @@ export default function About() {
               </div>
               <div>
                 <span className="font-mono text-xs text-primary font-semibold uppercase tracking-wider">
-                  Pillar II &bull; Article XII
+                  Pillar II &bull; Article I §3.2 &amp; Article XII
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-foreground">
-                  Ambassador Service &amp; Community Outreach
+                  Ambassador Service &amp; Outreach
                 </h3>
               </div>
             </div>
             <div className="space-y-3 text-muted-foreground text-sm sm:text-base leading-relaxed pl-0 sm:pl-16">
-              <p>
-                Technical skill carries an obligation to serve. Members act as computing ambassadors for Grand Blanc Community Schools. Each inductee completes a minimum of 10 hours of approved service annually, with at least 5 hours dedicated directly to computing-related outreach.
+              <p className="italic text-foreground/90 border-l-2 border-primary/50 pl-3">
+                &ldquo;Empowering members to become ambassadors of the computer science discipline, helping underscore its importance as a mainstay in the school and community.&rdquo;
               </p>
               <p>
-                Example service projects include organizing coding activities for younger elementary and middle school students, assisting during Hour of Code workshops, providing peer tutoring in high school computer science courses, and building helpful digital resources for the school.
+                Technical skill carries an obligation to serve. Each member completes a minimum of 10 hours of approved service each academic year (Article XII §5), with at least 5 hours dedicated directly to computing outreach, peer mentoring in Room 504, or elementary/middle school coding labs.
+              </p>
+              <p>
+                Members who surpass baseline obligations can earn annual Bronze (25 hours), Silver (50 hours), and Gold (100 hours) service distinction awards.
               </p>
             </div>
           </div>
@@ -127,19 +133,22 @@ export default function About() {
               </div>
               <div>
                 <span className="font-mono text-xs text-primary font-semibold uppercase tracking-wider">
-                  Pillar III &bull; Article VI &amp; VII
+                  Pillar III &bull; Article I §3.3 &amp; Article VI/VII
                 </span>
                 <h3 className="text-2xl font-serif font-bold text-foreground">
-                  Scholarly Excellence &amp; Ethical Integrity
+                  Outstanding Scholarship &amp; Integrity
                 </h3>
               </div>
             </div>
             <div className="space-y-3 text-muted-foreground text-sm sm:text-base leading-relaxed pl-0 sm:pl-16">
-              <p>
-                Excellence requires continuous dedication to learning, critical thinking, and algorithmic problem-solving. Candidates must maintain a minimum 80% (3.0 / B) GPA in rigorous computer science coursework, encompassing foundational and advanced courses including AP Computer Science A, AP CSP, and IB Computer Science.
+              <p className="italic text-foreground/90 border-l-2 border-primary/50 pl-3">
+                &ldquo;A commitment to promoting outstanding scholarship in computer science coursework.&rdquo;
               </p>
               <p>
-                Furthermore, all members pledge adherence to the CSHS Honor Code, committing to originality, intellectual honesty, and strict academic integrity in all computing endeavors.
+                We celebrate rigorous achievement across 6 active sections of computer science at Grand Blanc High School. Candidates satisfy the chapter scholarship standard (Article VII §2) by maintaining at least an 80% (3.0 / B) average in qualifying computing classes.
+              </p>
+              <p>
+                Furthermore, every inductee pledges strict adherence to the CSHS Honor Code (Article VI §6 / Footnote 1), submitting only original work and upholding academic honesty across all coursework.
               </p>
             </div>
           </div>

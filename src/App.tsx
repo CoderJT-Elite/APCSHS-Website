@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
 
@@ -29,20 +30,33 @@ function ScrollToTop() {
 }
 
 function Routes() {
+  const [location] = useLocation();
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <>
       <ScrollToTop />
       <Navbar />
       <main className="min-h-[calc(100vh-280px)]">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/membership" component={Membership} />
-          <Route path="/academics" component={Academics} />
-          <Route path="/service" component={Service} />
-          <Route path="/leadership" component={Leadership} />
-          <Route component={NotFound} />
-        </Switch>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location}
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -8 }}
+            transition={{ duration: 0.22, ease: [0.23, 1, 0.32, 1] }}
+          >
+            <Switch location={location}>
+              <Route path="/" component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/membership" component={Membership} />
+              <Route path="/academics" component={Academics} />
+              <Route path="/service" component={Service} />
+              <Route path="/leadership" component={Leadership} />
+              <Route component={NotFound} />
+            </Switch>
+          </motion.div>
+        </AnimatePresence>
       </main>
       <Footer />
     </>

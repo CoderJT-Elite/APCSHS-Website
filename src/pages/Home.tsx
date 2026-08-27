@@ -20,16 +20,28 @@ export default function Home() {
   return (
     <div className="pt-24 pb-12">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-8 pb-20 md:pt-14 md:pb-28">
+      <section className="relative overflow-hidden pt-6 pb-16 md:pt-12 md:pb-24">
         {/* Subtle background decorative shapes in school warm crimson & stone */}
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
         <div className="absolute top-1/3 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          {/* Animated Hero Brand Mark */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="flex justify-center mb-6"
+          >
+            <div className="p-3 rounded-2xl bg-card/80 border border-card-border/80 shadow-xs backdrop-blur-xs">
+              <BrandMark size={52} animated={true} />
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/25 bg-primary/5 text-primary text-xs font-mono font-medium mb-6 shadow-xs"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -39,7 +51,7 @@ export default function Home() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
             className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-foreground tracking-tight leading-[1.08] mb-6"
           >
             Grand Blanc <br className="hidden sm:inline" />
@@ -50,7 +62,7 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-sans"
           >
             Honoring academic achievement, promoting equity, and empowering student ambassadors in computing at Grand Blanc High School.
@@ -59,12 +71,12 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
             className="flex flex-wrap items-center justify-center gap-4"
           >
             <Link
               href="/membership"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-all shadow-sm hover:shadow-md cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm hover:shadow-md cursor-pointer"
             >
               <span>Membership Pathway</span>
               <ArrowRight className="w-4 h-4" />
@@ -72,7 +84,7 @@ export default function Home() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-muted hover:bg-accent border border-border text-foreground font-medium text-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-muted hover:bg-accent active:scale-[0.98] border border-border text-foreground font-medium text-sm transition-all cursor-pointer"
             >
               <span>Our Core Values</span>
             </Link>
@@ -81,7 +93,7 @@ export default function Home() {
               href={`${import.meta.env.BASE_URL}constitution.pdf`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-card hover:bg-muted border border-border text-muted-foreground hover:text-foreground text-sm font-mono transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-card hover:bg-muted active:scale-[0.98] border border-border text-muted-foreground hover:text-foreground text-sm font-mono transition-all"
             >
               <FileText className="w-4 h-4 text-primary" />
               <span>Constitution (PDF)</span>
@@ -102,19 +114,19 @@ export default function Home() {
                 Eligible Grades
               </span>
               <p className="text-xs text-muted-foreground/80 mt-1">
-                1+ semester attendance
+                1+ sem GBHS attendance
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
-                3.0 / 80%
+                80% / 3.0
               </span>
               <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
                 CS GPA Standard
               </span>
               <p className="text-xs text-muted-foreground/80 mt-1">
-                In qualifying coursework
+                Article VII §2 benchmark
               </p>
             </div>
 
@@ -132,13 +144,13 @@ export default function Home() {
 
             <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
-                5 Courses
+                6 Sections
               </span>
               <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
-                Rigorous Pathways
+                GBHS Coursework
               </span>
               <p className="text-xs text-muted-foreground/80 mt-1">
-                CSTA standards-aligned
+                5 CSTA-aligned pathways
               </p>
             </div>
           </div>
@@ -287,11 +299,11 @@ export default function Home() {
               </div>
               <ul className="space-y-3 font-sans text-sm">
                 {[
-                  { name: "AP Computer Science A", desc: "Object-oriented Java & data structures" },
-                  { name: "AP Computer Science Principles", desc: "Computing innovations & societal impact" },
-                  { name: "IB Computer Science", desc: "International Baccalaureate computational theory" },
-                  { name: "Exploring Computer Science", desc: "Broad foundational computing practices" },
-                  { name: "CS Discoveries", desc: "Creative problem-solving & web development" },
+                  { code: "AP CSA", name: "AP Computer Science A", desc: "Object-oriented Java & data structures" },
+                  { code: "AP CSP", name: "AP Computer Science Principles", desc: "Computing innovations & societal impact" },
+                  { code: "IB CS", name: "IB Computer Science", desc: "International Baccalaureate computational theory" },
+                  { code: "ECS", name: "Exploring Computer Science", desc: "Broad foundational computing practices" },
+                  { code: "CSD", name: "CS Discoveries", desc: "Creative problem-solving & web development" },
                 ].map((course, idx) => (
                   <li
                     key={idx}
@@ -305,8 +317,8 @@ export default function Home() {
                         {course.desc}
                       </span>
                     </div>
-                    <span className="font-mono text-xs px-2 py-0.5 rounded bg-background border border-border text-primary font-medium">
-                      0{idx + 1}
+                    <span className="font-mono text-xs px-2 py-0.5 rounded bg-background border border-border text-primary font-semibold">
+                      {course.code}
                     </span>
                   </li>
                 ))}

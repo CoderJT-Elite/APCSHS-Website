@@ -4,9 +4,10 @@ interface BrandMarkProps {
   size?: number;
   className?: string;
   showText?: boolean;
+  animated?: boolean;
 }
 
-export function BrandMark({ size = 36, className = "", showText = false }: BrandMarkProps) {
+export function BrandMark({ size = 36, className = "", showText = false, animated = false }: BrandMarkProps) {
   return (
     <div className={`inline-flex items-center gap-2.5 ${className}`}>
       <svg
@@ -15,7 +16,7 @@ export function BrandMark({ size = 36, className = "", showText = false }: Brand
         viewBox="0 0 48 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="flex-shrink-0"
+        className={`flex-shrink-0 transition-transform duration-300 ${animated ? "hover:scale-105" : ""}`}
         aria-hidden="true"
       >
         {/* Shield background */}
@@ -32,7 +33,7 @@ export function BrandMark({ size = 36, className = "", showText = false }: Brand
         {/* Bobcat ears / chevron geometry in crimson red */}
         <path
           d="M17 17L24 12L31 17L33 24L24 20L15 24L17 17Z"
-          className="fill-primary"
+          className={`fill-primary transition-all duration-300 ${animated ? "group-hover:brightness-110" : ""}`}
         />
         {/* Stylized code brackets & node core */}
         <path

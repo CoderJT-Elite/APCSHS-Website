@@ -116,14 +116,20 @@ export function Academics() {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-16">
         <div className="bg-muted/40 border border-border rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2">
-            <span className="font-mono text-xs text-primary font-semibold uppercase tracking-wider block">
-              Article VII &bull; Section 2 Standard
-            </span>
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-xs text-primary font-semibold uppercase tracking-wider block">
+                Article VII &bull; Section 2 Standard
+              </span>
+              <span className="text-muted-foreground text-xs">&bull;</span>
+              <span className="font-mono text-xs text-muted-foreground uppercase">
+                6 Active GBHS CS Sections
+              </span>
+            </div>
             <h3 className="text-2xl font-serif font-bold text-foreground">
-              Minimum 80% (3.0 / B) CS GPA Requirement
+              Chapter CS Scholarship Standard (80% / 3.0 / B)
             </h3>
             <p className="text-sm text-muted-foreground max-w-xl leading-relaxed">
-              To be eligible for consideration, a candidate must have completed at least one semester of any listed course below with a cumulative average of at least 80% (3.0 on a 4.0 scale) in those computing classes.
+              Grand Blanc High School offers 6 sections of computer science coursework across introductory, AP, and IB pathways. Candidates become eligible for GBCSHS selection by completing at least one semester with an average of at least 80% (3.0 on a 4.0 scale) in qualifying coursework.
             </p>
           </div>
           <div className="flex-shrink-0">
@@ -131,7 +137,7 @@ export function Academics() {
               href="/membership"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
             >
-              <span>View Eligibility</span>
+              <span>Selection Criteria</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -141,21 +147,26 @@ export function Academics() {
       {/* Course Profiles */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 mb-20">
         <div className="space-y-8">
-          {COURSES.map((course, idx) => (
+          {COURSES.map((course) => (
             <div
               key={course.id}
               className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 shadow-xs hover:border-primary/40 transition-all space-y-5"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-border">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-mono font-bold text-sm">
-                    0{idx + 1}
+                  <div className="w-11 h-11 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                    <Code2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-serif font-bold text-foreground">
-                      {course.name}
-                    </h3>
-                    <p className="font-mono text-xs text-muted-foreground">
+                    <div className="flex items-center gap-2.5">
+                      <h3 className="text-2xl font-serif font-bold text-foreground">
+                        {course.name}
+                      </h3>
+                      <span className="font-mono text-xs px-2 py-0.5 rounded bg-muted text-foreground font-semibold border border-border">
+                        {course.code}
+                      </span>
+                    </div>
+                    <p className="font-mono text-xs text-muted-foreground mt-0.5">
                       {course.level}
                     </p>
                   </div>
