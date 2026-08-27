@@ -92,10 +92,8 @@ export function HeroVideoScrub({ className = "" }: HeroVideoScrubProps) {
     const updateScrollProgress = () => {
       if (!container) return;
       const rect = container.getBoundingClientRect();
-      // At scroll 0, rect.top is ~0.
-      // As the user scrolls through the hero, rect.top becomes negative.
-      // Travel is measured over the height of the hero.
-      const travel = Math.max(rect.height, 300);
+      // Calculate scroll travel across the extended container height
+      const travel = Math.max(rect.height, 600);
       const raw = -rect.top / travel;
       targetProgress.current = Math.max(0, Math.min(1, raw));
     };
@@ -203,7 +201,7 @@ export function HeroVideoScrub({ className = "" }: HeroVideoScrubProps) {
         <img
           src={posterJpgSrc}
           alt=""
-          className="w-full h-full object-cover object-center opacity-45 dark:opacity-30 filter brightness-100 dark:brightness-90 transition-opacity duration-700"
+          className="w-full h-full object-cover object-center opacity-80 dark:opacity-65 filter brightness-100 dark:brightness-95 transition-opacity duration-700"
         />
       </picture>
 
@@ -214,19 +212,19 @@ export function HeroVideoScrub({ className = "" }: HeroVideoScrubProps) {
           muted
           playsInline
           preload="auto"
-          className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-100 dark:brightness-90 transition-opacity duration-700 ${
-            isPainted ? "opacity-45 dark:opacity-30" : "opacity-0"
+          className={`absolute inset-0 w-full h-full object-cover object-center filter brightness-100 dark:brightness-95 transition-opacity duration-700 ${
+            isPainted ? "opacity-80 dark:opacity-65" : "opacity-0"
           }`}
           aria-hidden="true"
         />
       )}
 
       {/* 3. Layered Aesthetic Scrims for Light/Dark mode contrast & seamless edge fading */}
-      {/* Base radial scrim focusing contrast behind central hero copy */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--background)/0.92)_0%,hsl(var(--background)/0.75)_55%,hsl(var(--background)/0.9)_100%)] dark:bg-[radial-gradient(ellipse_at_center,hsl(var(--background)/0.92)_0%,hsl(var(--background)/0.78)_55%,hsl(var(--background)/0.95)_100%)]" />
+      {/* Reduced-dimming central radial scrim to let keyboard details and warm daylight pop */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(var(--background)/0.78)_0%,hsl(var(--background)/0.45)_55%,hsl(var(--background)/0.80)_100%)] dark:bg-[radial-gradient(ellipse_at_center,hsl(var(--background)/0.82)_0%,hsl(var(--background)/0.52)_55%,hsl(var(--background)/0.88)_100%)]" />
 
-      {/* Vertical gradient to smoothly blend into header and next section */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+      {/* Vertical gradient to smoothly blend into header and next sections */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-transparent to-background/90" />
 
       {/* Subtle school branding atmospheric glows */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />

@@ -20,145 +20,148 @@ import { HeroVideoScrub } from "@/components/HeroVideoScrub";
 export default function Home() {
   return (
     <div className="pt-24 pb-12">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-6 pb-16 md:pt-12 md:pb-24">
-        {/* Scroll-scrubbed hero video with reduced-motion fallback and contrast scrims */}
+      {/* Top Hero & Snapshot Area with Extended Scroll-Scrubbed Video Backdrop */}
+      <div className="relative overflow-hidden">
+        {/* Scroll-scrubbed hero video with reduced-motion fallback and refined contrast */}
         <HeroVideoScrub />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          {/* Hero Brand Crest (Option 1 - Full Size, Transparent) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex justify-center mb-8"
-          >
-            <BrandMark
-              size={210}
-              variant="crest"
-              animated={true}
-              className="drop-shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-card/80 dark:bg-card/60 backdrop-blur-xs text-primary text-[11px] sm:text-xs font-mono font-medium mb-6 shadow-xs"
-          >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse shrink-0" />
-            <span className="truncate sm:overflow-visible">CSTA Affiliate Chapter &bull; Grand Blanc High School</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-foreground tracking-tight leading-[1.08] mb-6"
-          >
-            Grand Blanc <br className="hidden sm:inline" />
-            <span className="text-primary italic">Computer Science</span>{" "}
-            Honor Society
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-sans"
-          >
-            Honoring academic achievement, promoting equity, and empowering student ambassadors in computing at Grand Blanc High School.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="flex flex-wrap items-center justify-center gap-4"
-          >
-            <Link
-              href="/membership"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm hover:shadow-md cursor-pointer"
+        {/* Hero Section */}
+        <section className="relative pt-6 pb-16 md:pt-12 md:pb-20">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            {/* Hero Brand Crest (Option 1 - Full Size, Transparent) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="flex justify-center mb-8"
             >
-              <span>Membership Pathway</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <BrandMark
+                size={210}
+                variant="crest"
+                animated={true}
+                className="drop-shadow-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
+              />
+            </motion.div>
 
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-muted hover:bg-accent active:scale-[0.98] border border-border text-foreground font-medium text-sm transition-all cursor-pointer"
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-card/80 dark:bg-card/60 backdrop-blur-xs text-primary text-[11px] sm:text-xs font-mono font-medium mb-6 shadow-xs"
             >
-              <span>Our Core Values</span>
-            </Link>
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse shrink-0" />
+              <span className="truncate sm:overflow-visible">CSTA Affiliate Chapter &bull; Grand Blanc High School</span>
+            </motion.div>
 
-            <a
-              href={`${import.meta.env.BASE_URL}constitution.pdf`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-card hover:bg-muted active:scale-[0.98] border border-border text-muted-foreground hover:text-foreground text-sm font-mono transition-all"
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-foreground tracking-tight leading-[1.08] mb-6"
             >
-              <FileText className="w-4 h-4 text-primary" />
-              <span>Constitution (PDF)</span>
-            </a>
-          </motion.div>
-        </div>
-      </section>
+              Grand Blanc <br className="hidden sm:inline" />
+              <span className="text-primary italic">Computer Science</span>{" "}
+              Honor Society
+            </motion.h1>
 
-      {/* Snapshot / Key Facts Strip */}
-      <section className="py-10 border-y border-border/80 bg-muted/40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
-                9–12
-              </span>
-              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
-                Eligible Grades
-              </span>
-              <p className="text-xs text-muted-foreground/80 mt-1">
-                1+ sem GBHS attendance
-              </p>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-sans"
+            >
+              Honoring academic achievement, promoting equity, and empowering student ambassadors in computing at Grand Blanc High School.
+            </motion.p>
 
-            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
-                80% / 3.0
-              </span>
-              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
-                CS GPA Standard
-              </span>
-              <p className="text-xs text-muted-foreground/80 mt-1">
-                Article VII §2 benchmark
-              </p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="flex flex-wrap items-center justify-center gap-4"
+            >
+              <Link
+                href="/membership"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm hover:shadow-md cursor-pointer"
+              >
+                <span>Membership Pathway</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
 
-            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
-                10 Hours
-              </span>
-              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
-                Annual Service
-              </span>
-              <p className="text-xs text-muted-foreground/80 mt-1">
-                Min. 5 hours in computing
-              </p>
-            </div>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-muted hover:bg-accent active:scale-[0.98] border border-border text-foreground font-medium text-sm transition-all cursor-pointer"
+              >
+                <span>Our Core Values</span>
+              </Link>
 
-            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
-                6 Sections
-              </span>
-              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
-                GBHS Coursework
-              </span>
-              <p className="text-xs text-muted-foreground/80 mt-1">
-                5 CSTA-aligned pathways
-              </p>
+              <a
+                href={`${import.meta.env.BASE_URL}constitution.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-card hover:bg-muted active:scale-[0.98] border border-border text-muted-foreground hover:text-foreground text-sm font-mono transition-all"
+              >
+                <FileText className="w-4 h-4 text-primary" />
+                <span>Constitution (PDF)</span>
+              </a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Snapshot / Key Facts Strip */}
+        <section className="relative py-12 border-y border-border/60 bg-muted/20 dark:bg-muted/10 backdrop-blur-xs">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div className="p-5 rounded-xl bg-card/85 dark:bg-card/75 backdrop-blur-md border border-card-border/80 shadow-xs hover:border-primary/30 transition-all">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                  9–12
+                </span>
+                <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                  Eligible Grades
+                </span>
+                <p className="text-xs text-muted-foreground/80 mt-1">
+                  1+ sem GBHS attendance
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl bg-card/85 dark:bg-card/75 backdrop-blur-md border border-card-border/80 shadow-xs hover:border-primary/30 transition-all">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                  80% / 3.0
+                </span>
+                <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                  CS GPA Standard
+                </span>
+                <p className="text-xs text-muted-foreground/80 mt-1">
+                  Article VII §2 benchmark
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl bg-card/85 dark:bg-card/75 backdrop-blur-md border border-card-border/80 shadow-xs hover:border-primary/30 transition-all">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                  10 Hours
+                </span>
+                <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                  Annual Service
+                </span>
+                <p className="text-xs text-muted-foreground/80 mt-1">
+                  Min. 5 hours in computing
+                </p>
+              </div>
+
+              <div className="p-5 rounded-xl bg-card/85 dark:bg-card/75 backdrop-blur-md border border-card-border/80 shadow-xs hover:border-primary/30 transition-all">
+                <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                  6 Sections
+                </span>
+                <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                  GBHS Coursework
+                </span>
+                <p className="text-xs text-muted-foreground/80 mt-1">
+                  5 CSTA-aligned pathways
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* The Three Pillars Section */}
       <section className="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6">
