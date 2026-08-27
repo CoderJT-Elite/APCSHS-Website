@@ -84,6 +84,7 @@ Every claim on the site was independently audited against `attached_assets/Grand
 
 ## 6. Git & Build Status
 
+- **Final Commit on `main`**: `a79cc76` (`feat: Phase 1 fact verification, content depth, motion pass, and scrollcraft craft polish`)
 - **Typecheck**: `npm run typecheck` (`tsc --noEmit`) -> **0 errors**
-- **Production Build**: `npm run build` (`vite build`) -> **Passed**
+- **Production Build**: `npm run build` (`vite build`) -> **Passed (HTTP 200 on all 6 routes & 404 fallback)**
 - **Dev Server**: Running on `http://localhost:5173/`
