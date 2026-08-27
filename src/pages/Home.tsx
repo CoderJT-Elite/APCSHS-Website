@@ -1,355 +1,349 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Navbar } from '@/components/Navbar';
-import { Shield, Users, BookOpen, Code, Award, Target, Terminal } from 'lucide-react';
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+import React from "react";
+import { Link } from "wouter";
+import { motion } from "framer-motion";
+import {
+  Users,
+  Shield,
+  Award,
+  ArrowRight,
+  BookOpen,
+  Code2,
+  CheckCircle2,
+  Sparkles,
+  FileText,
+  GraduationCap,
+  HeartHandshake,
+} from "lucide-react";
+import { BrandMark } from "@/components/BrandMark";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30 selection:text-primary">
-      <Navbar />
-
+    <div className="pt-24 pb-12">
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={`${import.meta.env.BASE_URL}hero-bg.png`}
-            alt="Late night coding session" 
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        </div>
-        
-        <div className="container mx-auto px-6 relative z-10 text-center">
+      <section className="relative overflow-hidden pt-8 pb-20 md:pt-14 md:pb-28">
+        {/* Subtle background decorative shapes in school warm crimson & stone */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute top-1/3 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/25 bg-primary/5 text-primary text-xs font-mono font-medium mb-6 shadow-xs"
           >
-            <motion.div variants={fadeIn} className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary font-mono text-sm shadow-[0_0_15px_rgba(0,255,255,0.15)]">
-              Computer Science Teachers Association (CSTA) Affiliate
-            </motion.div>
-            <motion.h1 variants={fadeIn} className="text-5xl md:text-7xl font-bold mb-6 tracking-tight font-sans">
-              Grand Blanc Computer Science Honor Society
-            </motion.h1>
-            <motion.p variants={fadeIn} className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Honoring academic excellence, promoting equity, and empowering student ambassadors in computing.
-            </motion.p>
-            <motion.div variants={fadeIn}>
-              <a href="#values" className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_30px_rgba(0,255,255,0.5)]">
-                Discover Our Mission
-              </a>
-            </motion.div>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span>CSTA Affiliate Chapter &bull; Grand Blanc High School</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-foreground tracking-tight leading-[1.08] mb-6"
+          >
+            Grand Blanc <br className="hidden sm:inline" />
+            <span className="text-primary italic">Computer Science</span>{" "}
+            Honor Society
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed font-sans"
+          >
+            Honoring academic achievement, promoting equity, and empowering student ambassadors in computing at Grand Blanc High School.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="/membership"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-all shadow-sm hover:shadow-md cursor-pointer"
+            >
+              <span>Membership Pathway</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-muted hover:bg-accent border border-border text-foreground font-medium text-sm transition-all cursor-pointer"
+            >
+              <span>Our Core Values</span>
+            </Link>
+
+            <a
+              href={`${import.meta.env.BASE_URL}constitution.pdf`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-card hover:bg-muted border border-border text-muted-foreground hover:text-foreground text-sm font-mono transition-all"
+            >
+              <FileText className="w-4 h-4 text-primary" />
+              <span>Constitution (PDF)</span>
+            </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section id="values" className="py-32 relative">
-        <div className="container mx-auto px-6">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-            className="text-center mb-20"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Core Values</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              The foundation of everything we build, study, and represent at Grand Blanc High School.
-            </p>
-          </motion.div>
+      {/* Snapshot / Key Facts Strip */}
+      <section className="py-10 border-y border-border/80 bg-muted/40">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                9–12
+              </span>
+              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                Eligible Grades
+              </span>
+              <p className="text-xs text-muted-foreground/80 mt-1">
+                1+ semester attendance
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Equity",
-                icon: <Users className="w-8 h-8 text-primary" />,
-                desc: "We believe every student has the potential to enroll, grow, and excel in computing. We actively break down barriers and foster an inclusive environment."
-              },
-              {
-                title: "Service",
-                icon: <Shield className="w-8 h-8 text-secondary" />,
-                desc: "Empowering our members to become ambassadors of computer science, providing meaningful service to our school and the wider local community."
-              },
-              {
-                title: "Excellence",
-                icon: <Award className="w-8 h-8 text-primary" />,
-                desc: "A steadfast commitment to promoting and honoring outstanding scholarship in rigorous computer science coursework."
-              }
-            ].map((value, i) => (
-              <motion.div
-                key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0, transition: { delay: i * 0.2, duration: 0.6 } }
-                }}
-                className="bg-card border border-card-border p-8 rounded-xl hover:border-primary/50 transition-colors group relative overflow-hidden"
-              >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                <div className="bg-background w-16 h-16 rounded-lg flex items-center justify-center mb-6 border border-border group-hover:border-primary/30 transition-colors shadow-sm">
-                  {value.icon}
-                </div>
-                <h3 className="text-2xl font-semibold mb-4">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.desc}
-                </p>
-              </motion.div>
-            ))}
+            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                3.0 / 80%
+              </span>
+              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                CS GPA Standard
+              </span>
+              <p className="text-xs text-muted-foreground/80 mt-1">
+                In qualifying coursework
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                10 Hours
+              </span>
+              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                Annual Service
+              </span>
+              <p className="text-xs text-muted-foreground/80 mt-1">
+                Min. 5 hours in computing
+              </p>
+            </div>
+
+            <div className="p-4 rounded-xl bg-card border border-card-border/80 shadow-xs">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-primary block mb-1">
+                5 Courses
+              </span>
+              <span className="text-xs uppercase tracking-wider font-mono text-muted-foreground block font-medium">
+                Rigorous Pathways
+              </span>
+              <p className="text-xs text-muted-foreground/80 mt-1">
+                CSTA standards-aligned
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Abstract Divider */}
-      <section className="py-20 relative overflow-hidden flex justify-center items-center">
-        <div className="w-full max-w-4xl relative opacity-50 px-6">
-           <img src={`${import.meta.env.BASE_URL}abstract-tech.png`} alt="Tech Abstract" className="w-full h-auto object-cover rounded-3xl border border-border/50 shadow-2xl" />
-           <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-background" />
-           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background" />
+      {/* The Three Pillars Section */}
+      <section className="py-20 md:py-28 max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="font-mono text-xs text-primary uppercase tracking-widest font-semibold block mb-2">
+            Charter Foundations
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground">
+            The Three Pillars of GBCSHS
+          </h2>
+          <p className="text-muted-foreground mt-3 text-base sm:text-lg">
+            Our chapter operates on three core principles defined by the Computer Science Teachers Association national charter.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Pillar 1: Equity */}
+          <div className="bg-card border border-card-border rounded-xl p-8 hover:border-primary/40 transition-all flex flex-col justify-between shadow-xs group">
+            <div>
+              <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary">
+                <Users className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                Equity
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                We believe computing is for every student. Our society actively dismantles barriers, engages underrepresented peers, and champions inclusive access to computer science education across Grand Blanc High School.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-border/60">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-primary hover:underline cursor-pointer"
+              >
+                <span>Read equity commitment</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Pillar 2: Service */}
+          <div className="bg-card border border-card-border rounded-xl p-8 hover:border-primary/40 transition-all flex flex-col justify-between shadow-xs group">
+            <div>
+              <div className="w-12 h-12 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-6 text-foreground">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                Service
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Members serve as technology ambassadors. From mentoring middle schoolers to assisting peers in lab coursework, every inductee commits at least 10 annual service hours (with tiered Bronze, Silver, and Gold honors).
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-border/60">
+              <Link
+                href="/service"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-primary hover:underline cursor-pointer"
+              >
+                <span>View service tiers</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Pillar 3: Excellence */}
+          <div className="bg-card border border-card-border rounded-xl p-8 hover:border-primary/40 transition-all flex flex-col justify-between shadow-xs group">
+            <div>
+              <div className="w-12 h-12 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-6 text-primary">
+                <Award className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                Excellence
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                We celebrate outstanding scholarship in rigorous computer science coursework, from AP Computer Science A to IB Computer Science, upholding rigorous standards of computational thinking and academic integrity.
+              </p>
+            </div>
+            <div className="pt-6 mt-6 border-t border-border/60">
+              <Link
+                href="/academics"
+                className="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-primary hover:underline cursor-pointer"
+              >
+                <span>Explore qualifying courses</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Membership */}
-      <section id="membership" className="py-32 bg-card relative border-y border-border">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-            >
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Earning Your Place</h2>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <Target className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-medium mb-2">Eligibility</h4>
-                    <p className="text-muted-foreground">Open to students in grades 9-12 who have demonstrated exceptional commitment to computing.</p>
-                  </div>
+      {/* Selection & Honor Code Overview */}
+      <section className="py-16 bg-muted/30 border-y border-border/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div className="space-y-4">
+              <span className="font-mono text-xs text-primary uppercase tracking-wider font-semibold">
+                Article VII &bull; Selection Charter
+              </span>
+              <h2 className="text-3xl font-serif font-bold text-foreground">
+                Holistic Selection & Unwavering Integrity
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                Membership in the Grand Blanc Computer Science Honor Society is an earned honor. Candidates are evaluated holistically on computer science achievement, demonstrated leadership, and a steadfast commitment to service.
+              </p>
+              <div className="p-4 rounded-lg bg-background border border-border text-sm space-y-2">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground/90 font-medium">
+                    Strict adherence to the CSHS Honor Code (original work, zero plagiarism).
+                  </span>
                 </div>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <BookOpen className="w-6 h-6 text-secondary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-medium mb-2">Academic Standard</h4>
-                    <p className="text-muted-foreground">Requires completion of at least one semester of rigorous CS coursework with a minimum 80% GPA (B / 3.0) in those courses.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 mt-1">
-                    <Shield className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-medium mb-2">The Honor Code</h4>
-                    <p className="text-muted-foreground">All members must conform to the CSHS honor code: original work only, no copying, absolute academic integrity.</p>
-                  </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span className="text-foreground/90 font-medium">
+                    Equal opportunity: Zero discrimination on race, gender, background, or identity.
+                  </span>
                 </div>
               </div>
-              <div className="mt-8 p-6 bg-primary/5 border border-primary/20 rounded-xl text-sm text-primary leading-relaxed shadow-[inset_0_0_20px_rgba(0,255,255,0.05)]">
-                Selection is based holistically on CS achievement, leadership potential, and commitment to service. No student shall be denied membership due to discrimination of any kind. Once selected, members are inducted at a special ceremony.
+              <div className="pt-2">
+                <Link
+                  href="/membership"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline cursor-pointer"
+                >
+                  <span>Learn how candidates are evaluated & inducted</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="bg-background border border-border p-8 rounded-xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                <Terminal className="w-32 h-32" />
+            <div className="bg-card border border-card-border p-6 sm:p-8 rounded-xl shadow-xs space-y-5">
+              <div className="flex items-center justify-between pb-4 border-b border-border">
+                <div className="flex items-center gap-2.5">
+                  <Code2 className="w-5 h-5 text-primary" />
+                  <h4 className="font-serif font-bold text-lg text-foreground">
+                    Qualifying Coursework
+                  </h4>
+                </div>
+                <span className="font-mono text-xs text-muted-foreground">
+                  Min. 1 Semester
+                </span>
               </div>
-              <h3 className="text-2xl font-bold mb-6 font-mono border-b border-border pb-4 flex items-center gap-3">
-                <Terminal className="w-6 h-6 text-primary" /> Accepted Courses
-              </h3>
-              <ul className="space-y-4 relative z-10">
+              <ul className="space-y-3 font-sans text-sm">
                 {[
-                  "CS Discoveries",
-                  "Exploring Computer Science",
-                  "AP Computer Science Principles",
-                  "AP Computer Science A",
-                  "IB Computer Science"
-                ].map((course, i) => (
-                  <li key={i} className="flex items-center gap-4 text-muted-foreground group">
-                    <div className="w-8 h-8 rounded bg-card flex items-center justify-center border border-border group-hover:border-secondary/50 transition-colors">
-                      <Code className="w-4 h-4 text-secondary" />
+                  { name: "AP Computer Science A", desc: "Object-oriented Java & data structures" },
+                  { name: "AP Computer Science Principles", desc: "Computing innovations & societal impact" },
+                  { name: "IB Computer Science", desc: "International Baccalaureate computational theory" },
+                  { name: "Exploring Computer Science", desc: "Broad foundational computing practices" },
+                  { name: "CS Discoveries", desc: "Creative problem-solving & web development" },
+                ].map((course, idx) => (
+                  <li
+                    key={idx}
+                    className="flex items-center justify-between p-2.5 rounded-lg bg-muted/40 hover:bg-muted/70 transition-colors"
+                  >
+                    <div>
+                      <span className="font-semibold text-foreground block text-sm">
+                        {course.name}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {course.desc}
+                      </span>
                     </div>
-                    <span className="group-hover:text-foreground transition-colors">{course}</span>
+                    <span className="font-mono text-xs px-2 py-0.5 rounded bg-background border border-border text-primary font-medium">
+                      0{idx + 1}
+                    </span>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Academics */}
-      <section id="academics" className="py-32 bg-background relative border-b border-border">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
+      {/* Call to Action Banner */}
+      <section className="py-20 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="bg-gradient-to-b from-card to-muted/50 border border-card-border p-8 sm:p-12 rounded-2xl shadow-xs relative overflow-hidden">
+          <div className="w-12 h-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center text-primary mb-5">
+            <GraduationCap className="w-6 h-6" />
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-foreground mb-4">
+            Ready to Take Your Computing Journey Further?
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+            Whether you are planning your course selections, completing your service hours, or looking to apply for the next induction class, we invite you to explore our society.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3.5">
+            <Link
+              href="/membership"
+              className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-all shadow-xs cursor-pointer"
             >
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">About the Courses</h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                All listed courses are rigorous computer science offerings aligned with CSTA K-12 Standards. These courses challenge students to think computationally, write original code, and develop problem-solving skills that extend far beyond the classroom.
-              </p>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Completion of at least one semester of any qualifying course qualifies a student for GBCSHS membership consideration.
-              </p>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeIn}
-              className="space-y-4"
+              Membership Requirements
+            </Link>
+            <Link
+              href="/leadership"
+              className="px-6 py-2.5 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-sm font-medium transition-all cursor-pointer"
             >
-              {[
-                { name: "CS Discoveries", desc: "Foundational problem-solving and creative computing" },
-                { name: "Exploring Computer Science", desc: "Broad introduction to CS principles and practices" },
-                { name: "AP Computer Science Principles", desc: "Concepts of computing and its impact on society" },
-                { name: "AP Computer Science A", desc: "Object-oriented programming in Java" },
-                { name: "IB Computer Science", desc: "International Baccalaureate-level CS study" },
-              ].map((course, i) => (
-                <div key={i} className="flex items-start gap-4 p-4 rounded-lg border border-border bg-card hover:border-primary/30 transition-colors">
-                  <div className="w-8 h-8 rounded bg-background flex items-center justify-center border border-border flex-shrink-0 mt-0.5">
-                    <span className="text-primary font-mono text-xs font-bold">{String(i + 1).padStart(2, '0')}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">{course.name}</h4>
-                    <p className="text-sm text-muted-foreground">{course.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+              Meet Advisor & Leadership
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* Service & Community */}
-      <section id="service" className="py-32 relative">
-        <div className="container mx-auto px-6 text-center max-w-4xl">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Beyond the Screen</h2>
-            <p className="text-xl text-muted-foreground mb-12">
-              Code is powerful, but its true value is in how we apply it. GBCSHS members are expected to be leaders and educators in our community.
-            </p>
-            <div className="grid md:grid-cols-2 gap-8 text-left">
-              <div className="p-8 rounded-xl border border-border bg-card hover:bg-card/80 transition-colors group">
-                <h4 className="text-xl font-bold mb-4 font-mono text-primary flex items-center justify-between">
-                  <span>01. Service</span>
-                  <Target className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  We provide meaningful service to the local community, using our technical skills to help others, teach younger students, and advocate for tech literacy.
-                </p>
-              </div>
-              <div className="p-8 rounded-xl border border-border bg-card hover:bg-card/80 transition-colors group">
-                <h4 className="text-xl font-bold mb-4 font-mono text-secondary flex items-center justify-between">
-                  <span>02. Community</span>
-                  <Users className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </h4>
-                <p className="text-muted-foreground leading-relaxed">
-                  We meet at least 4 times per year to collaborate, plan initiatives, and celebrate inductions at our special membership ceremonies.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-card border-t border-border py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.02]" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold font-mono text-primary mb-4">&lt;GBCSHS /&gt;</h3>
-              <p className="text-muted-foreground max-w-sm">
-                Grand Blanc Computer Science Honor Society. Inspiring the next generation of computing professionals through equity, service, and excellence.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 font-mono">Location</h4>
-              <address className="text-muted-foreground not-italic space-y-2 text-sm">
-                <p className="text-foreground">Grand Blanc High School</p>
-                <p>Room 504</p>
-                <p>12500 Holly Rd</p>
-                <p>Grand Blanc, MI 48439</p>
-              </address>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 font-mono">Leadership</h4>
-              <div className="text-muted-foreground space-y-2 text-sm">
-                <p><span className="text-foreground">Website Builder:</span> John Tewolde</p>
-                <p>
-                  <a href="mailto:jg.tewolde@gmail.com" className="hover:text-primary transition-colors">
-                    jg.tewolde@gmail.com
-                  </a>
-                </p>
-                <p className="pt-1"><span className="text-foreground">Advisor:</span> Mr. Todd Beard</p>
-                <p className="text-primary mt-2">A CSTA Affiliate Society</p>
-              </div>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4 font-mono">Documents</h4>
-              <div className="text-sm">
-                <a
-                  href={`${import.meta.env.BASE_URL}constitution.pdf`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
-                >
-                  <BookOpen className="w-4 h-4 group-hover:text-primary transition-colors" />
-                  GBCSHS Constitution
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-16 pt-8 border-t border-border text-center text-sm text-muted-foreground flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex flex-col items-center md:items-start gap-1">
-              <p>&copy; {new Date().getFullYear()} Grand Blanc Computer Science Honor Society.</p>
-              <p className="font-mono text-xs text-muted-foreground">Created by John Tewolde</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <p className="font-mono text-xs text-primary">System Status: Online</p>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

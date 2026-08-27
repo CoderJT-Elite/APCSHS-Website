@@ -1,134 +1,146 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
+import { Menu, X, FileText, ChevronRight } from "lucide-react";
+import { BrandMark } from "./BrandMark";
+import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Values', href: '#values' },
-  { name: 'Membership', href: '#membership' },
-  { name: 'Service', href: '#service' },
+const NAV_LINKS = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Membership", href: "/membership" },
+  { name: "Academics", href: "/academics" },
+  { name: "Service", href: "/service" },
+  { name: "Leadership", href: "/leadership" },
 ];
 
 export function Navbar() {
-  const [active, setActive] = useState('home');
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const visibleSections = useRef<Map<string, IntersectionObserverEntry>>(new Map());
-  const scrollLock = useRef(false);
-  const lockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [location] = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const thresholds = Array.from({ length: 21 }, (_, i) => i * 0.05);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            visibleSections.current.set(entry.target.id, entry);
-          } else {
-            visibleSections.current.delete(entry.target.id);
-          }
-        });
-
-        if (scrollLock.current) return;
-
-        const allVisible = Array.from(visibleSections.current.values());
-        if (allVisible.length === 0) return;
-
-        const best = allVisible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        setActive(best.target.id);
-      },
-      { threshold: thresholds, rootMargin: '-80px 0px -40% 0px' }
-    );
-
-    navItems.forEach((item) => {
-      const el = document.getElementById(item.href.substring(1));
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const id = href.substring(1);
-    const element = document.getElementById(id);
-    if (element) {
-      scrollLock.current = true;
-      if (lockTimer.current) clearTimeout(lockTimer.current);
-      lockTimer.current = setTimeout(() => {
-        scrollLock.current = false;
-      }, 1000);
-
-      const offset = 80;
-      const top = element.offsetTop - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-      setActive(id);
-    }
-    setMobileOpen(false);
-  };
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   return (
-    <nav className={cn(
-      "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
-      scrolled || mobileOpen ? "bg-background/80 backdrop-blur-md border-border shadow-sm py-4" : "bg-transparent py-6"
-    )}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="text-xl font-bold font-mono text-primary tracking-tighter">
-          &lt;GBCSHS /&gt;
-        </a>
-        <div className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-primary relative cursor-pointer",
-                active === item.href.substring(1) ? "text-primary" : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-              {active === item.href.substring(1) && (
-                <span className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary" />
-              )}
-            </a>
-          ))}
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-200 border-b",
+        isScrolled
+          ? "bg-background/90 backdrop-blur-md border-border/80 shadow-xs py-3"
+          : "bg-background/60 backdrop-blur-xs border-transparent py-4.5"
+      )}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
+          <BrandMark size={32} showText={true} />
+        </Link>
+
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:flex items-center gap-1 bg-muted/50 p-1 rounded-full border border-border/60">
+          {NAV_LINKS.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? location === "/"
+                : location === link.href || location.startsWith(link.href + "/");
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={cn(
+                  "px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer",
+                  isActive
+                    ? "bg-background text-foreground shadow-xs font-semibold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+                )}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Right side items: Constitution Link + Theme Toggle + Mobile Menu button */}
+        <div className="flex items-center gap-2.5">
+          <a
+            href={`${import.meta.env.BASE_URL}constitution.pdf`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-medium text-foreground/80 hover:text-primary bg-muted/60 hover:bg-muted border border-border/70 transition-colors"
+            title="Read Chapter Constitution (PDF)"
+          >
+            <FileText className="w-3.5 h-3.5 text-primary" />
+            <span>Constitution</span>
+          </a>
+
+          <ThemeToggle />
+
+          {/* Mobile hamburger button */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-md text-foreground/80 hover:text-foreground hover:bg-muted/80 border border-border/70 transition-colors"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => setMobileOpen((prev) => !prev)}
-          className="md:hidden text-foreground p-2 -mr-2"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
-      {mobileOpen && (
-        <div className="md:hidden container mx-auto px-6 pt-6 pb-2 flex flex-col space-y-4 border-t border-border mt-4">
-          {navItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className={cn(
-                "text-base font-medium transition-colors hover:text-primary cursor-pointer",
-                active === item.href.substring(1) ? "text-primary" : "text-muted-foreground"
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
+
+      {/* Mobile Drawer Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border px-4 pt-3 pb-5 mt-3 shadow-lg animate-in slide-in-from-top-2 duration-200">
+          <nav className="flex flex-col space-y-1">
+            {NAV_LINKS.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? location === "/"
+                  : location === link.href || location.startsWith(link.href + "/");
+
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={cn(
+                    "flex items-center justify-between px-4 py-2.5 rounded-lg text-base font-medium transition-colors cursor-pointer",
+                    isActive
+                      ? "bg-primary/10 text-primary font-semibold border border-primary/20"
+                      : "text-foreground/80 hover:text-foreground hover:bg-muted"
+                  )}
+                >
+                  <span>{link.name}</span>
+                  <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                </Link>
+              );
+            })}
+            <div className="pt-2 mt-2 border-t border-border/60">
+              <a
+                href={`${import.meta.env.BASE_URL}constitution.pdf`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-mono text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              >
+                <FileText className="w-4 h-4 text-primary" />
+                <span>View Constitution (PDF)</span>
+              </a>
+            </div>
+          </nav>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

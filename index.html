@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" suppressHydrationWarning>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Grand Blanc Computer Science Honor Society</title>
-    <meta name="description" content="GBCSHS is a CSTA-affiliate honor society at Grand Blanc High School honoring academic excellence, promoting equity, and empowering student ambassadors in computing." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Blanc Computer Science Honor Society | GBCSHS</title>
+    <meta name="description" content="Official website for the Grand Blanc High School Chapter of the Computer Science Honor Society (GBCSHS), an affiliate of the Computer Science Teachers Association (CSTA)." />
+    <meta name="author" content="Grand Blanc Computer Science Honor Society" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://jt-website.me/APCSHS-Website/" />
-    <meta property="og:title" content="Grand Blanc Computer Science Honor Society" />
-    <meta property="og:description" content="A CSTA-affiliate honor society at Grand Blanc High School honoring academic excellence, promoting equity, and empowering student ambassadors in computing." />
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://jt-website.me/APCSHS-Website/" />
-    <meta property="og:image" content="https://jt-website.me/APCSHS-Website/opengraph.jpg" />
+    <meta property="og:title" content="Grand Blanc Computer Science Honor Society" />
+    <meta property="og:description" content="Honoring academic excellence, promoting equity, and empowering student ambassadors in computing at Grand Blanc High School." />
+    <meta property="og:image" content="/opengraph.jpg" />
+    
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Grand Blanc Computer Science Honor Society" />
-    <meta name="twitter:description" content="A CSTA-affiliate honor society at Grand Blanc High School honoring academic excellence, promoting equity, and empowering student ambassadors in computing." />
-    <meta name="twitter:image" content="https://jt-website.me/APCSHS-Website/opengraph.jpg" />
+    <meta name="twitter:description" content="Honoring academic excellence, promoting equity, and empowering student ambassadors in computing at Grand Blanc High School." />
+    <meta name="twitter:image" content="/opengraph.jpg" />
+    
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- Google Fonts: Fraunces (Display Serif), Karla (Body Humanist Sans), IBM Plex Mono (Micro Accents) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Karla:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="min-h-screen bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
