@@ -1,4 +1,6 @@
 import React from "react";
+import crestImg from "@/assets/gbcshs-crest.png";
+import markImg from "@/assets/gbcshs-mark.png";
 
 interface BrandMarkProps {
   size?: number;
@@ -15,13 +17,11 @@ export function BrandMark({
   animated = false,
   variant = "mark",
 }: BrandMarkProps) {
-  const basePath = import.meta.env.BASE_URL;
-
   return (
     <div className={`inline-flex items-center gap-2.5 ${className}`}>
       {variant === "crest" ? (
         <img
-          src={`${basePath}gbcshs-crest.png`}
+          src={crestImg}
           alt="GBCSHS Collegiate Crest"
           width={size}
           height={size}
@@ -31,7 +31,7 @@ export function BrandMark({
         />
       ) : variant === "mark" ? (
         <img
-          src={`${basePath}gbcshs-mark.png`}
+          src={markImg}
           alt="GBCSHS Geometric Tech Mark"
           width={size}
           height={size}
