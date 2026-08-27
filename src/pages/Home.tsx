@@ -15,15 +15,15 @@ import {
   HeartHandshake,
 } from "lucide-react";
 import { BrandMark } from "@/components/BrandMark";
+import { HeroVideoScrub } from "@/components/HeroVideoScrub";
 
 export default function Home() {
   return (
     <div className="pt-24 pb-12">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-6 pb-16 md:pt-12 md:pb-24">
-        {/* Subtle background decorative shapes in school warm crimson & stone */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute top-1/3 left-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none" />
+        {/* Scroll-scrubbed hero video with reduced-motion fallback and contrast scrims */}
+        <HeroVideoScrub />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
           {/* Hero Brand Crest (Option 1 - Full Size, Transparent) */}
@@ -45,10 +45,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/25 bg-primary/5 text-primary text-xs font-mono font-medium mb-6 shadow-xs"
+            className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full border border-primary/25 bg-card/80 dark:bg-card/60 backdrop-blur-xs text-primary text-[11px] sm:text-xs font-mono font-medium mb-6 shadow-xs"
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span>CSTA Affiliate Chapter &bull; Grand Blanc High School</span>
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse shrink-0" />
+            <span className="truncate sm:overflow-visible">CSTA Affiliate Chapter &bull; Grand Blanc High School</span>
           </motion.div>
 
           <motion.h1
