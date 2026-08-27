@@ -12,10 +12,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Column 1: Organization & Identity */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <BrandMark size={36} />
+            <div className="flex items-center gap-3">
+              <BrandMark size={52} variant="mark" />
               <div>
-                <h3 className="font-serif font-bold text-lg text-secondary-foreground tracking-tight">
+                <h3 className="font-serif font-bold text-xl text-secondary-foreground tracking-tight">
                   GBCSHS
                 </h3>
                 <p className="font-mono text-xs text-secondary-foreground/70 uppercase tracking-wider">

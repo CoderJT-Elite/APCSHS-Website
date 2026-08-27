@@ -44,8 +44,8 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-          <BrandMark size={32} showText={true} />
+        <Link href="/" className="flex items-center gap-3 group cursor-pointer">
+          <BrandMark size={44} showText={true} variant="mark" animated={true} />
         </Link>
 
         {/* Desktop Navigation Links */}

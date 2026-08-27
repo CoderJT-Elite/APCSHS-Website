@@ -177,13 +177,13 @@ export default function About() {
         <div className="grid sm:grid-cols-2 gap-8">
           {/* Logo 1: Collegiate Crest */}
           <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xs hover:border-primary/40 transition-all group">
-            <div className="p-4 rounded-2xl bg-muted/50 border border-border/80 mb-5 w-44 h-44 flex items-center justify-center">
-              <BrandMark size={140} variant="crest" animated={true} />
+            <div className="mb-6 flex items-center justify-center p-2">
+              <BrandMark size={220} variant="crest" animated={true} className="drop-shadow-lg" />
             </div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-primary/10 text-primary text-xs font-mono font-medium mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono font-medium mb-3">
               <span>Primary Chapter Crest</span>
             </div>
-            <h3 className="text-xl font-serif font-bold text-foreground mb-2">
+            <h3 className="text-2xl font-serif font-bold text-foreground mb-2">
               Collegiate Bobcat Crest
             </h3>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -192,22 +192,22 @@ export default function About() {
             <a
               href={`${import.meta.env.BASE_URL}gbcshs-crest.png`}
               download="gbcshs-crest.png"
-              className="mt-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-xs font-mono font-medium transition-all"
+              className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-xs font-mono font-medium transition-all"
             >
-              <FileText className="w-3.5 h-3.5 text-primary" />
-              <span>Download Crest (PNG)</span>
+              <FileText className="w-4 h-4 text-primary" />
+              <span>Download High-Res Crest (PNG)</span>
             </a>
           </div>
 
           {/* Logo 2: Geometric Tech Mark */}
           <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-xs hover:border-primary/40 transition-all group">
-            <div className="p-4 rounded-2xl bg-muted/50 border border-border/80 mb-5 w-44 h-44 flex items-center justify-center">
-              <BrandMark size={140} variant="mark" animated={true} />
+            <div className="mb-6 flex items-center justify-center p-2">
+              <BrandMark size={200} variant="mark" animated={true} className="drop-shadow-lg" />
             </div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary/10 text-foreground text-xs font-mono font-medium mb-3">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-foreground text-xs font-mono font-medium mb-3">
               <span>Digital &amp; App Insignia</span>
             </div>
-            <h3 className="text-xl font-serif font-bold text-foreground mb-2">
+            <h3 className="text-2xl font-serif font-bold text-foreground mb-2">
               Geometric Tech Mark
             </h3>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
@@ -216,10 +216,10 @@ export default function About() {
             <a
               href={`${import.meta.env.BASE_URL}gbcshs-mark.png`}
               download="gbcshs-mark.png"
-              className="mt-auto inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-xs font-mono font-medium transition-all"
+              className="mt-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-muted hover:bg-accent border border-border text-foreground text-xs font-mono font-medium transition-all"
             >
-              <FileText className="w-3.5 h-3.5 text-primary" />
-              <span>Download Mark (PNG)</span>
+              <FileText className="w-4 h-4 text-primary" />
+              <span>Download High-Res Mark (PNG)</span>
             </a>
           </div>
         </div>
