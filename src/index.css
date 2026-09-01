@@ -45,71 +45,71 @@
 }
 
 :root {
-  /* Warm editorial light mode */
-  --background: 38 25% 97%;          /* #FAF8F5 warm paper */
-  --foreground: 240 6% 13%;          /* #1E1E22 warm charcoal */
+  /* Authentic GBHS Red & Black editorial light mode */
+  --background: 0 0% 98%;            /* #FAFAFA Crisp modern ground */
+  --foreground: 240 10% 7%;          /* #0F0F14 Authentic Carbon Black */
 
   --card: 0 0% 100%;                 /* Pure white card surface */
-  --card-foreground: 240 6% 13%;
-  --card-border: 36 15% 88%;         /* Soft stone border */
+  --card-foreground: 240 10% 7%;
+  --card-border: 240 6% 88%;         /* Crisp slate border */
 
   --popover: 0 0% 100%;
-  --popover-foreground: 240 6% 13%;
-  --popover-border: 36 15% 88%;
+  --popover-foreground: 240 10% 7%;
+  --popover-border: 240 6% 88%;
 
-  --primary: 0 66% 44%;              /* #B82626 Refined Bobcat Crimson */
+  --primary: 354 84% 43%;            /* #C91224 Authentic GBHS Bobcat Red */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 240 6% 18%;           /* #28272C Warm Charcoal */
-  --secondary-foreground: 38 25% 97%;
+  --secondary: 240 10% 9%;           /* #131317 Deep Obsidian Carbon */
+  --secondary-foreground: 0 0% 98%;
 
-  --muted: 36 18% 92%;               /* Soft warm neutral */
-  --muted-foreground: 35 10% 38%;    /* Highly readable warm stone charcoal (contrast > 5.0) */
+  --muted: 240 5% 93%;               /* #ECECEF Clean soft neutral */
+  --muted-foreground: 240 6% 38%;    /* #5A5A66 High legibility charcoal (contrast > 5.2:1) */
 
-  --accent: 36 22% 93%;
-  --accent-foreground: 240 6% 13%;
+  --accent: 240 5% 92%;
+  --accent-foreground: 240 10% 7%;
 
-  --destructive: 0 66% 44%;
+  --destructive: 354 84% 43%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 36 16% 87%;              /* #E3DED4 */
-  --input: 36 16% 87%;
-  --ring: 0 66% 44%;
+  --border: 240 6% 87%;              /* #DCDBE1 */
+  --input: 240 6% 87%;
+  --ring: 354 84% 43%;
 
   --radius: 0.625rem;
 }
 
 .dark {
-  /* Editorial charcoal dark mode */
-  --background: 240 7% 8%;           /* #131316 Deep warm charcoal */
-  --foreground: 38 20% 95%;          /* #F5F3EF Warm white */
+  /* Authentic GBHS Red & Carbon Black dark mode */
+  --background: 240 10% 5%;          /* #0B0B0E Deep obsidian carbon ground */
+  --foreground: 0 0% 98%;            /* #FAFAFA Crisp optic white */
 
-  --card: 240 8% 12%;                /* #1B1B20 Elevated dark surface */
-  --card-foreground: 38 20% 95%;
-  --card-border: 240 7% 18%;
+  --card: 240 8% 9%;                 /* #131317 Elevated carbon surface */
+  --card-foreground: 0 0% 98%;
+  --card-border: 240 6% 16%;         /* #23232A Defined dark border */
 
-  --popover: 240 8% 12%;
-  --popover-foreground: 38 20% 95%;
-  --popover-border: 240 7% 18%;
+  --popover: 240 8% 9%;
+  --popover-foreground: 0 0% 98%;
+  --popover-border: 240 6% 16%;
 
-  --primary: 0 72% 54%;              /* #D93838 Vibrant Crimson */
+  --primary: 354 88% 54%;            /* #ED253C Vivid athletic Bobcat Red */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 240 8% 20%;           /* #302F38 */
-  --secondary-foreground: 38 20% 95%;
+  --secondary: 240 8% 13%;           /* #1E1E25 Carbon slate */
+  --secondary-foreground: 0 0% 98%;
 
-  --muted: 240 8% 15%;
-  --muted-foreground: 35 10% 68%;    /* Readable muted warm grey (contrast > 6.0) */
+  --muted: 240 7% 12%;               /* #1B1B21 */
+  --muted-foreground: 240 6% 68%;    /* #A7A7B4 High legibility silver-charcoal (contrast > 6.0:1) */
 
-  --accent: 240 8% 16%;
-  --accent-foreground: 38 20% 95%;
+  --accent: 240 7% 14%;
+  --accent-foreground: 0 0% 98%;
 
-  --destructive: 0 72% 54%;
+  --destructive: 354 88% 54%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 240 7% 18%;
-  --input: 240 7% 18%;
-  --ring: 0 72% 54%;
+  --border: 240 6% 16%;
+  --input: 240 6% 16%;
+  --ring: 354 88% 54%;
 }
 
 @layer base {
