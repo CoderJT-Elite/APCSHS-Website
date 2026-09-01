@@ -155,7 +155,7 @@ export default function Home() {
                   GBHS Coursework
                 </span>
                 <p className="text-xs text-muted-foreground/80 mt-1">
-                  5 CSTA-aligned pathways
+                  4 CSTA-aligned pathways
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function Home() {
                 Excellence
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                We celebrate outstanding scholarship in rigorous computer science coursework, from AP Computer Science A to IB Computer Science, upholding rigorous standards of computational thinking and academic integrity.
+                We celebrate outstanding scholarship in rigorous computer science coursework, from AP Computer Science A to AP Computer Science Principles and foundational computing, upholding rigorous standards of computational thinking and academic integrity.
               </p>
             </div>
             <div className="pt-6 mt-6 border-t border-border/60">
@@ -307,7 +307,6 @@ export default function Home() {
                 {[
                   { code: "AP CSA", name: "AP Computer Science A", desc: "Object-oriented Java & data structures" },
                   { code: "AP CSP", name: "AP Computer Science Principles", desc: "Computing innovations & societal impact" },
-                  { code: "IB CS", name: "IB Computer Science", desc: "International Baccalaureate computational theory" },
                   { code: "ECS", name: "Exploring Computer Science", desc: "Broad foundational computing practices" },
                   { code: "CSD", name: "CS Discoveries", desc: "Creative problem-solving & web development" },
                 ].map((course, idx) => (

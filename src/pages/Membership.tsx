@@ -170,7 +170,7 @@ export function Membership() {
             {
               step: "Step 1",
               title: "Verify Coursework & Academic Record",
-              desc: "Ensure you have completed at least one semester of an approved CS course (AP CSA, AP CSP, IB CS, ECS, or CS Discoveries) and maintained an 80%+ (3.0/B) average.",
+              desc: "Ensure you have completed at least one semester of an approved CS course (AP CSA, AP CSP, ECS, or CS Discoveries) and maintained an 80%+ (3.0/B) average.",
               badge: "Prerequisite",
             },
             {

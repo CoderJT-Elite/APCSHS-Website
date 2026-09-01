@@ -48,22 +48,6 @@ export function Academics() {
       tag: "College Board Aligned",
     },
     {
-      id: "ib-cs",
-      name: "IB Computer Science",
-      code: "IB CS",
-      level: "International Baccalaureate",
-      language: "Java / Pseudocode",
-      summary: "An in-depth, internationally benchmarked study of computer systems, algorithmic thinking, systems engineering, and computational theory.",
-      topics: [
-        "System Fundamentals, Stakeholders & Design",
-        "Computer Organization, Memory & Processor Architecture",
-        "Networks, Topology & Data Transmission",
-        "Computational Thinking & Algorithmic Problem Solving",
-        "Abstract Data Structures (Stacks, Queues, Binary Trees)",
-      ],
-      tag: "IB Diploma Programme",
-    },
-    {
       id: "ecs",
       name: "Exploring Computer Science",
       code: "ECS",
@@ -129,7 +113,7 @@ export function Academics() {
               Chapter CS Scholarship Standard (80% / 3.0 / B)
             </h3>
             <p className="text-sm text-muted-foreground max-w-xl leading-relaxed">
-              Grand Blanc High School offers 6 sections of computer science coursework across introductory, AP, and IB pathways. Candidates become eligible for GBCSHS selection by completing at least one semester with an average of at least 80% (3.0 on a 4.0 scale) in qualifying coursework.
+              Grand Blanc High School offers 6 sections of computer science coursework across introductory, foundational, and Advanced Placement pathways. Candidates become eligible for GBCSHS selection by completing at least one semester with an average of at least 80% (3.0 on a 4.0 scale) in qualifying coursework.
             </p>
           </div>
           <div className="flex-shrink-0">
