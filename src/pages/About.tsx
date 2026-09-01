@@ -11,6 +11,8 @@ import {
   Target,
   Sparkles,
   ArrowRight,
+  Code2,
+  Mail,
 } from "lucide-react";
 import { BrandMark } from "@/components/BrandMark";
 
@@ -221,6 +223,71 @@ export default function About() {
               <FileText className="w-4 h-4 text-primary" />
               <span>Download High-Res Mark (PNG)</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Digital Platform & Engineering Attribution */}
+      <section id="developer" className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
+        <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-10 shadow-xs space-y-6 hover:border-primary/40 transition-all">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-border">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary flex-shrink-0">
+                <Code2 className="w-6 h-6" />
+              </div>
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold block">
+                  Platform Architecture &bull; Engineering
+                </span>
+                <h2 className="text-2xl font-serif font-bold text-foreground">
+                  Website Development &amp; Architecture
+                </h2>
+              </div>
+            </div>
+            <span className="inline-flex items-center px-3 py-1 rounded-full bg-muted border border-border text-xs font-mono text-foreground/80 font-medium self-start sm:self-auto">
+              Production Release
+            </span>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="space-y-3 max-w-xl">
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold block">
+                  Website Developer
+                </span>
+                <h3 className="text-2xl font-serif font-bold text-foreground">
+                  John Tewolde
+                </h3>
+                <p className="text-xs font-mono text-muted-foreground mt-0.5">
+                  Platform Engineering &bull; Full-Stack Architecture
+                </p>
+              </div>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Engineered and architected the official Grand Blanc Computer Science Honor Society standalone platform, establishing the chapter&rsquo;s digital identity, interactive course catalog, constitution archives, and student resources portal.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-1 text-xs font-mono text-muted-foreground">
+                <span className="px-2.5 py-1 rounded-md bg-muted/60 border border-border">React 19</span>
+                <span className="px-2.5 py-1 rounded-md bg-muted/60 border border-border">TypeScript</span>
+                <span className="px-2.5 py-1 rounded-md bg-muted/60 border border-border">Tailwind CSS</span>
+                <span className="px-2.5 py-1 rounded-md bg-muted/60 border border-border">Vite</span>
+              </div>
+            </div>
+
+            <div className="flex-shrink-0 flex flex-col sm:flex-row md:flex-col gap-3">
+              <a
+                href="mailto:jg.tewolde@gmail.com"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 active:scale-[0.98] transition-all shadow-xs"
+              >
+                <Mail className="w-4 h-4" />
+                <span>Contact Developer</span>
+              </a>
+              <a
+                href="mailto:jg.tewolde@gmail.com"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-muted hover:bg-accent border border-border text-xs font-mono text-muted-foreground hover:text-foreground transition-all"
+              >
+                <span>jg.tewolde@gmail.com</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "wouter";
 import { BrandMark } from "./BrandMark";
-import { MapPin, Mail, UserCheck, BookOpen, ExternalLink, ShieldCheck } from "lucide-react";
+import { MapPin, Mail, UserCheck, BookOpen, ExternalLink, ShieldCheck, Code2 } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -40,32 +40,32 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/" className="text-secondary-foreground/80 hover:text-primary transition-colors cursor-pointer">
-                  Home & Overview
+                  Home &amp; Overview
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="text-secondary-foreground/80 hover:text-primary transition-colors cursor-pointer">
-                  About & Core Values
+                  About &amp; Core Values
                 </Link>
               </li>
               <li>
                 <Link href="/membership" className="text-secondary-foreground/80 hover:text-primary transition-colors cursor-pointer">
-                  Membership & Honor Code
+                  Membership &amp; Honor Code
                 </Link>
               </li>
               <li>
                 <Link href="/academics" className="text-secondary-foreground/80 hover:text-primary transition-colors cursor-pointer">
-                  Academics & Qualifying Courses
+                  Academics &amp; Qualifying Courses
                 </Link>
               </li>
               <li>
                 <Link href="/service" className="text-secondary-foreground/80 hover:text-primary transition-colors cursor-pointer">
-                  Service & Award Tiers
+                  Service &amp; Award Tiers
                 </Link>
               </li>
               <li>
                 <Link href="/leadership" className="text-secondary-foreground/80 hover:text-primary transition-colors cursor-pointer">
-                  Leadership & Advisor
+                  Leadership &amp; Advisor
                 </Link>
               </li>
             </ul>
@@ -92,32 +92,23 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 4: Leadership & Documents */}
+          {/* Column 4: Advising & Charter */}
           <div>
             <h4 className="font-mono text-xs uppercase tracking-widest text-secondary-foreground/60 mb-4 font-semibold">
-              Leadership & Contacts
+              Advising &amp; Charter
             </h4>
             <div className="space-y-3 text-sm text-secondary-foreground/80">
-              <div className="flex items-center gap-2">
-                <UserCheck className="w-4 h-4 text-primary flex-shrink-0" />
-                <span>
-                  <strong className="text-secondary-foreground">Advisor:</strong> Mr. Todd Beard
-                </span>
-              </div>
               <div className="flex items-start gap-2">
-                <Mail className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                <UserCheck className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-secondary-foreground font-medium">Website Builder:</span>
-                  <span className="block">John Tewolde</span>
-                  <a
-                    href="mailto:jg.tewolde@gmail.com"
-                    className="text-xs text-primary hover:underline"
-                  >
-                    jg.tewolde@gmail.com
-                  </a>
+                  <span className="text-secondary-foreground font-semibold block">Mr. Todd Beard</span>
+                  <span className="text-xs text-secondary-foreground/70 font-mono">Chapter Faculty Advisor</span>
                 </div>
               </div>
-              <div className="pt-2">
+              <p className="text-xs text-secondary-foreground/60 leading-relaxed">
+                Supervising chapter induction, service commitments, and CSTA curriculum standards in Room 504.
+              </p>
+              <div className="pt-1">
                 <a
                   href={`${import.meta.env.BASE_URL}constitution.pdf`}
                   target="_blank"
@@ -133,15 +124,47 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Dedicated Website Developer Recognition */}
+        <div className="mt-12 p-5 rounded-xl bg-secondary-foreground/5 border border-secondary-foreground/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5">
+            <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center text-primary flex-shrink-0">
+              <Code2 className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold">
+                  Website Developer
+                </span>
+                <span className="text-secondary-foreground/40 text-xs hidden sm:inline">&bull;</span>
+                <span className="font-mono text-xs text-secondary-foreground/60 hidden sm:inline">Official Chapter Platform</span>
+              </div>
+              <h5 className="text-base font-serif font-bold text-secondary-foreground">
+                John Tewolde
+              </h5>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <a
+              href="mailto:jg.tewolde@gmail.com"
+              className="inline-flex items-center gap-2 text-xs font-mono font-medium px-3.5 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-xs"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>jg.tewolde@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-secondary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-secondary-foreground/60">
+        <div className="mt-8 pt-8 border-t border-secondary-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-secondary-foreground/70">
           <p>
             &copy; {currentYear} Grand Blanc Computer Science Honor Society. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <span className="font-mono">Grand Blanc High School &bull; Home of the Bobcats</span>
-            <span>&bull;</span>
-            <span className="font-mono">Created by John Tewolde</span>
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="font-mono text-secondary-foreground/60">Grand Blanc High School &bull; Home of the Bobcats</span>
+            <span className="text-secondary-foreground/30 hidden sm:inline">&bull;</span>
+            <span className="font-mono text-secondary-foreground/90 font-medium">
+              Website Developer: <span className="text-secondary-foreground font-semibold">John Tewolde</span>
+            </span>
           </div>
         </div>
       </div>

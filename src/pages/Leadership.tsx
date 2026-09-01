@@ -3,14 +3,12 @@ import { Link } from "wouter";
 import {
   Users,
   UserCheck,
-  Mail,
   MapPin,
   Calendar,
   Building,
   Shield,
   FileText,
   Award,
-  Sparkles,
 } from "lucide-react";
 
 export function Leadership() {
@@ -19,22 +17,22 @@ export function Leadership() {
       {/* Header */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-12 text-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-mono mb-4">
-          <span>Article IX &bull; Article X</span>
+          <span>Article III &bull; Article IV &bull; Article X</span>
         </div>
         <h1 className="text-4xl sm:text-5xl font-serif font-bold text-foreground tracking-tight mb-4">
           Leadership &amp; Governance
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Meet the faculty advisor and leadership team guiding the Grand Blanc Computer Science Honor Society.
+          Meet the faculty advisor and administrative leadership guiding the Grand Blanc Computer Science Honor Society.
         </p>
       </section>
 
-      {/* Leadership Spotlight Grid: Advisor, Principal, and Developer */}
+      {/* Chapter Administration & Advising Grid */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 mb-16">
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {/* Faculty Advisor */}
-          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-7 shadow-xs space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
+          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 shadow-xs space-y-5 flex flex-col justify-between hover:border-primary/40 transition-all">
+            <div className="space-y-4">
               <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                 <UserCheck className="w-6 h-6" />
               </div>
@@ -42,79 +40,47 @@ export function Leadership() {
                 <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold block">
                   Faculty Advisor &bull; Article IV
                 </span>
-                <h2 className="text-xl font-serif font-bold text-foreground">
+                <h2 className="text-2xl font-serif font-bold text-foreground mt-0.5">
                   Mr. Todd Beard
                 </h2>
-                <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                <p className="text-xs text-muted-foreground font-mono mt-1">
                   CS Educator &bull; CSTA+ Member
                 </p>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Supervises chapter operations, advises student officers, oversees Faculty Council candidate evaluations, and coordinates CSTA curriculum alignment.
               </p>
             </div>
-            <div className="pt-3 border-t border-border/70 text-xs font-mono text-muted-foreground flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-              <span>Room 504, Grand Blanc HS</span>
+            <div className="pt-4 border-t border-border/70 text-xs font-mono text-muted-foreground flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+              <span>Room 504, Grand Blanc High School</span>
             </div>
           </div>
 
           {/* Authorizing Principal */}
-          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-7 shadow-xs space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-muted border border-border flex items-center justify-center text-foreground">
+          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-8 shadow-xs space-y-5 flex flex-col justify-between hover:border-primary/40 transition-all">
+            <div className="space-y-4">
+              <div className="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-foreground">
                 <Building className="w-6 h-6 text-primary" />
               </div>
               <div>
                 <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold block">
                   GBHS Principal &bull; Article III
                 </span>
-                <h2 className="text-xl font-serif font-bold text-foreground">
+                <h2 className="text-2xl font-serif font-bold text-foreground mt-0.5">
                   Mr. Michael Fray
                 </h2>
-                <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                <p className="text-xs text-muted-foreground font-mono mt-1">
                   School Administration
                 </p>
               </div>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Authorized chapter creation under Article II §3. Reserves administrative oversight, annually appoints the society advisor, and receives disciplinary appeals.
               </p>
             </div>
-            <div className="pt-3 border-t border-border/70 text-xs font-mono text-muted-foreground flex items-center gap-2">
-              <Shield className="w-3.5 h-3.5 text-primary flex-shrink-0" />
-              <span>Grand Blanc High School</span>
-            </div>
-          </div>
-
-          {/* Website Builder & Developer */}
-          <div className="bg-card border border-card-border rounded-2xl p-6 sm:p-7 shadow-xs space-y-4 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-foreground">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <span className="font-mono text-xs uppercase tracking-wider text-primary font-semibold block">
-                  Web Developer &bull; Architecture
-                </span>
-                <h2 className="text-xl font-serif font-bold text-foreground">
-                  John Tewolde
-                </h2>
-                <p className="text-xs text-muted-foreground font-mono mt-0.5">
-                  Web Architect &amp; Software Dev
-                </p>
-              </div>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                Engineered the official GBCSHS standalone platform, establishing the chapter's digital identity and resources portal.
-              </p>
-            </div>
-            <div className="pt-3 border-t border-border/70">
-              <a
-                href="mailto:jg.tewolde@gmail.com"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:underline"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                <span>jg.tewolde@gmail.com</span>
-              </a>
+            <div className="pt-4 border-t border-border/70 text-xs font-mono text-muted-foreground flex items-center gap-2">
+              <Shield className="w-4 h-4 text-primary flex-shrink-0" />
+              <span>Grand Blanc High School Administration</span>
             </div>
           </div>
         </div>
